@@ -93,9 +93,8 @@
             </ul>
           </div>
         </nav>
-        <input type="file" (change)="onFileSelected($event)">
         <div *ngIf="profileImage">
-        <img [src]="imageUrl" class="imageCentering" width="178px" height="178px">
+        <img [src]="profileImage" class="imageCentering" width="178px" height="178px">
         </div>
         <img [src]="addImage" class="add-image" width="30px" height="30px">
 
@@ -146,6 +145,9 @@
                           <!--
                           <label>Email Address</label>
                           <input type="text" style="margin-bottom: 25px;" formControlName="emailAddress">-->
+                          <label>Profile Image</label>
+                          <input type="file" (change)="onFileSelected($event)" style="margin-bottom: 25px;" >
+
 
                           <label>Password</label>
                           <input type="password" style="margin-bottom: 25px;" formControlName="password"   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">

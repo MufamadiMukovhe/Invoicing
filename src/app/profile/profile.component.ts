@@ -22,11 +22,11 @@ export class ProfileComponent
   }
   
 );
-profileImage: string = 'assets/img/Ellipse 2.svg'; 
+profileImage: any = 'assets/img/Ellipse 2.svg'; 
 addImage: string = 'assets/img/Group 2.svg'; 
 
 
-imageUrl: string | ArrayBuffer | null = null;
+imageUrl!: string | ArrayBuffer | null;
 
 onFileSelected(event: any) {
   const file: File = event.target.files[0];
@@ -34,9 +34,9 @@ onFileSelected(event: any) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      this.imageUrl = reader.result;
-    };
+    this.profileImage = reader.result as string | ArrayBuffer;    };
   }
+
 }
 
 get change (){return this.profileForm.controls;}
